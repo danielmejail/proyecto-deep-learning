@@ -118,10 +118,12 @@ Conjunto de datos
 
 Métricas y gráficas de rendimiento
 
+Estadísticas y gráficas del conjunto de datos
+
 ### Herramientas utilizadas
 Para la implementación de la arquitectura detrás del modelo de DL utilizado
 en el producto final, utilizamos distintas componentes de la librería
-`TensirFlow`. Para el desarrollo de la interfaz y la presentación del
+`TensorFlow`. Para el desarrollo de la interfaz y la presentación del
 producto, utilizamos `gradio`.
 
 ## Diseño del modelo
