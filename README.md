@@ -108,11 +108,11 @@ la pena.
 ### Estructura del código
 - [Conjunto de datos](data),
 - [Estadísticas y gráficas del conjunto de datos](estadisticas),
-- [Métricas y gráficas de rendimiento del modelo](),
-- [Preparación de los datos para entrenamiento](),
+- [Preparación de los datos para entrenamiento](scripts/preparacion-de-datos.py),
 - [Implementación de la arquitectura](),
 - [Optimización de los hiperparámetros](),
 - [Entrenamiento del modelo](),
+- [Métricas y gráficas de rendimiento del modelo](),
 
 ### Herramientas utilizadas
 Para la implementación de la arquitectura detrás del modelo de DL utilizado
