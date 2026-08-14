@@ -106,8 +106,8 @@ entrenamiento, consideramos que los mejores resultados hacen que valga
 la pena.
 
 ### Estructura del código
-- [Conjunto de datos](),
-- [Estadísticas y gráficas del conjunto de datos](),
+- [Conjunto de datos](data),
+- [Estadísticas y gráficas del conjunto de datos](estadisticas),
 - [Métricas y gráficas de rendimiento del modelo](),
 - [Preparación de los datos para entrenamiento](),
 - [Implementación de la arquitectura](),
