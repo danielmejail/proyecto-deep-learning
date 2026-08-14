@@ -106,19 +106,13 @@ entrenamiento, consideramos que los mejores resultados hacen que valga
 la pena.
 
 ### Estructura del código
-Preparación de los datos para entrenamiento
-
-Implementación de la arquitectura
-
-Optimización de los hiperparámetros
-
-Entrenamiento del modelo
-
-Conjunto de datos
-
-Métricas y gráficas de rendimiento
-
-Estadísticas y gráficas del conjunto de datos
+- [Conjunto de datos](),
+- [Estadísticas y gráficas del conjunto de datos](),
+- [Métricas y gráficas de rendimiento del modelo](),
+- [Preparación de los datos para entrenamiento](),
+- [Implementación de la arquitectura](),
+- [Optimización de los hiperparámetros](),
+- [Entrenamiento del modelo](),
 
 ### Herramientas utilizadas
 Para la implementación de la arquitectura detrás del modelo de DL utilizado
