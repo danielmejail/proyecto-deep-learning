@@ -108,10 +108,10 @@ la pena.
 ### Estructura del código
 - [Conjunto de datos](data),
 - [Estadísticas y gráficas del conjunto de datos](estadisticas),
-- [Preparación de los datos para entrenamiento](scripts/preparacion-de-datos.py),
-- [Implementación de la arquitectura](scripts/implementacion-de-la-arquitectura.py),
-- [Optimización de los hiperparámetros](scripts/optimizacion-de-los-hiperparametros.py),
-- [Entrenamiento del modelo](scripts/entrenamiento-del-modelo.py),
+- [Preparación de los datos para entrenamiento](scripts/preparacion_de_datos.py),
+- [Implementación de la arquitectura](scripts/implementacion_de_la_arquitectura.py),
+- [Optimización de los hiperparámetros](scripts/optimizacion_de_los_hiperparametros.py),
+- [Entrenamiento del modelo](scripts/entrenamiento_del_modelo.py),
 - [Métricas y gráficas de rendimiento del modelo](metricas),
 
 ### Herramientas utilizadas
