@@ -74,7 +74,7 @@ for epoch in range(100):
         best_train_loss = epoch_loss
         best_state_dict = copy.deepcopy(modelo_final.state_dict())
 
-# modelo_final.load_state_dict(best_state_dict)
+modelo_final.load_state_dict(best_state_dict)
 
 ### *mean squared error* estimado del modelo
 modelo_final.eval()
