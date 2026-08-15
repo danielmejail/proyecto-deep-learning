@@ -70,5 +70,3 @@ for epoch in range(EPOCHS):
 
 # Guardamos el estado del modelo
 torch.save(best_state_dict, "estado_de_pesos.pth")
-
-# agregamos un comentario
