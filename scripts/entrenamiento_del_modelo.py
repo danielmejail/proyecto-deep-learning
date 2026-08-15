@@ -43,10 +43,11 @@ optimizer_final = torch.optim.Adam(
 
 # Entrenamos con todo el dataset,
 # guardando el checkpoint de la época con mejor loss
+EPOCHS = 100
 best_train_loss = float("inf")
 best_state_dict = None
 
-for epoch in range(100):
+for epoch in range(EPOCHS):
     modelo_final.train()
     running_loss = 0
 
