@@ -121,6 +121,7 @@ en el producto final, utilizamos distintas componentes de la librería
 producto, utilizamos `gradio`.
 
 ## Diseño del modelo
+Se seleccionó una DNN para este proyecto final, continuando con el dataset California Housing, ya que ofrece un buen equilibrio entre capacidad predictiva y costo computacional frente a las otras arquitecturas evaluadas: en las prácticas anteriores superó tanto al MLP como a TabNet en las cuatro métricas evaluadas (MSE 0,2569, RMSE 0,5068, MAE 0,3480, R² 0,8040), con un tiempo de entrenamiento considerablemente menor al de TabNet.
 
 ## Conclusiones
 
