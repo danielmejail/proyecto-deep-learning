@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import numpy as np
 import pandas as pd
 
@@ -12,16 +14,17 @@ from implementacion_de_la_arquitectura import DNN
 from hiperparametros_optimizados import hiperparametros
 
 # Importamos los datos
-datadir = "../data/"
-train_data_name = "train_data_scaled.csv"
-train_target_name = "train_target.csv"
-test_data_name = "test_data_scaled.csv"
-test_target_name = "test_target.csv"
+wdir = Path(__file__).resolve().parent
+datadir = wdir.parent.joinpath("data")
+train_data_file = datadir.joinpath("train_data_scaled.csv")
+train_target_file = datadir.joinpath("train_target.csv")
+test_data_file = datadir.joinpath("test_data_scaled.csv")
+test_target_file = datadir.joinpath("test_target.csv")
 
-X_train = pd.read_csv(datadir + train_data_name, index_col=0)
-y_train = pd.read_csv(datadir + train_target_name, index_col=0)
-X_test = pd.read_csv(datadir + test_data_name, index_col=0)
-y_test = pd.read_csv(datadir + test_target_name, index_col=0)
+X_train = pd.read_csv(train_data_file, index_col=0)
+y_train = pd.read_csv(train_target_file, index_col=0)
+X_test = pd.read_csv(test_data_file, index_col=0)
+y_test = pd.read_csv(test_target_file, index_col=0)
 
 X_train_full_tensor = torch.tensor(np.array(X_train), \
         dtype=torch.float32)
@@ -76,14 +79,18 @@ for epoch in range(100):
 
 modelo_final.load_state_dict(best_state_dict)
 
+### Métricas
+metdir = wdir.parent.joinpath("metricas")
+mse_file = metdir.joinpath("mse.csv")
+predicciones_file = metdir.joinpath("predicciones.png")
+
 ### *mean squared error* estimado del modelo
 modelo_final.eval()
 with torch.no_grad():
     y_pred_test = modelo_final(X_test_tensor)
     mse_test = criterion(y_pred_test, y_test_tensor).item()
 
-metdir = "../metricas/"
-with open(metdir + "mse.csv", "w") as file:
+with open(mse_file, "w") as file:
     file.write(",MSE\n")
     file.write(f"0,{mse_test:.4f}")
 
@@ -97,5 +104,5 @@ plt.plot([min_val, 5], [min_val, 5], color='red', linestyle='--', \
 plt.title('Valores reales vs. predichos')
 plt.xlabel('Valor real')
 plt.ylabel('Valor predicho')
-plt.savefig(metdir + "predicciones.png")
+plt.savefig(predicciones_file)
 

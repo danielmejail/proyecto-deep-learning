@@ -1,11 +1,15 @@
+from pathlib import Path
+
 import numpy as np
 import torch
 
 from implementacion_de_la_arquitectura import DNN
 from hiperparametros_optimizados import hiperparametros
 
+wdir = Path(__file__).resolve().parent
+
 N_FEATURES = 8
-pesosfile = "estado_de_pesos.pth"
+pesosfile = wdir.joinpath("estado_de_pesos.pth")
 
 # Probamos cargar el estado del modelo entrenado y utilizarlo para predicción
 modelo = DNN( input_size=N_FEATURES, \

@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import numpy as np
 import pandas as pd
 
@@ -10,12 +12,13 @@ from implementacion_de_la_arquitectura import DNN
 from hiperparametros_optimizados import hiperparametros
 
 # Importamos los datos
-datadir = "../data/"
-train_data_name = "data.csv"
-train_target_name = "target.csv"
+wdir = Path(__file__).resolve().parent
+datadir = wdir.parent.joinpath("data")
+train_data_file = datadir.joinpath("data.csv")
+train_target_file = datadir.joinpath("target.csv")
 
-X_train = pd.read_csv(datadir + train_data_name, index_col=0)
-y_train = pd.read_csv(datadir + train_target_name, index_col=0)
+X_train = pd.read_csv(train_data_file, index_col=0)
+y_train = pd.read_csv(train_target_file, index_col=0)
 
 X_train_full_tensor = torch.tensor(np.array(X_train), \
         dtype=torch.float32)

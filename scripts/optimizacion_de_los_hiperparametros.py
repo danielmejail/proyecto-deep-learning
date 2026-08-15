@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import numpy as np
 import pandas as pd
 
@@ -12,17 +14,13 @@ from itertools import product
 from implementacion_de_la_arquitectura import DNN
 
 # Importamos los datos
-datadir = "../data/"
-train_data_name = "train_data_scaled.csv"
-train_target_name = "train_target.csv"
-# test_data_name = "test_data_scaled.csv"
-# test_target_name = "test_target.csv"
+wdir = Path(__file__).resolve().parent
+datadir = wdir.parent.joinpath("data")
+train_data_file = datadir.joinpath("train_data_scaled.csv")
+train_target_file = datadir.joinpath("train_target.csv")
 
-X_train = pd.read_csv(datadir + train_data_name, index_col=0)
-y_train = pd.read_csv(datadir + train_target_name, index_col=0)
-
-# X_test = pd.read_csv(datadir + test_data_name, index_col=0)
-# y_test = pd.read_csv(datadir + test_target_name, index_col=0)
+X_train = pd.read_csv(train_data_file, index_col=0)
+y_train = pd.read_csv(train_target_file, index_col=0)
 
 # Reservamos, del conjunto de train, un subconjunto de validación
 # para realizar la optimización de los hiperparámetros del modelo
@@ -40,15 +38,9 @@ X_val_tensor = torch.tensor(np.array(X_train_val), \
 y_val_tensor = torch.tensor(y_train_val.values, \
         dtype=torch.float32).reshape(-1, 1)
 
-# X_test_tensor = torch.tensor(X_test, \
-        # dtype=torch.float32)
-# y_test_tensor = torch.tensor(y_test.values, \
-        # dtype=torch.float32).reshape(-1, 1)
-
 # Datasets
 final_dataset = TensorDataset(X_final_tensor, y_final_tensor)
 val_dataset = TensorDataset(X_val_tensor, y_val_tensor)
-
 
 ### Función de entrenamiento para optimización de hiperparámetros
 
@@ -200,7 +192,7 @@ for hidden, lr, batch, dropout, wd in product(
         }
 
 ### Reporte de los mejores hiperparámetros
-with open("hiperparametros_optimizados.py", "w") as file:
+with open(wdir.joinpath("hiperparametros_optimizados.py"), "w") as file:
     file.write("hiperparametros = ")
     file.write(str(best_params))
 
@@ -222,7 +214,7 @@ train_losses_check, val_losses_check = \
         train_model( model_check, train_loader, val_loader, \
             criterion, optimizer_check, epochs=100 )
 
-metdir = "../metricas/"
+metdir = wdir.parent.joinpath("metricas")
 plt.figure(figsize=(8, 5))
 plt.plot(train_losses_check, label='Pérdida en entreamiento (MSE)')
 plt.plot(val_losses_check, label='Pérdida en test (MSE)')
@@ -231,5 +223,5 @@ plt.ylabel('MSE')
 plt.title('Curva de entrenamiento y evaluación del modelo')
 plt.legend()
 plt.tight_layout()
-plt.savefig(metdir + "rendimiento.png")
+plt.savefig(metdir.joinpath("rendimiento.png"))
 
