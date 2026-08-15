@@ -121,7 +121,24 @@ en el producto final, utilizamos distintas componentes de la librería
 producto, utilizamos `gradio`.
 
 ## Diseño del modelo
-Se seleccionó una DNN para este proyecto final, continuando con el dataset California Housing, ya que ofrece un buen equilibrio entre capacidad predictiva y costo computacional frente a las otras arquitecturas evaluadas: en las prácticas anteriores superó tanto al MLP como a TabNet en las cuatro métricas evaluadas (MSE 0,2569, RMSE 0,5068, MAE 0,3480, R² 0,8040), con un tiempo de entrenamiento considerablemente menor al de TabNet.
+Se seleccionó una DNN para este proyecto final, continuando con el dataset
+California Housing, ya que ofrece un buen equilibrio entre capacidad
+predictiva y costo computacional frente a las otras arquitecturas evaluadas:
+en las prácticas anteriores superó tanto al MLP como a TabNet en las cuatro
+métricas evaluadas (MSE 0,2569, RMSE 0,5068, MAE 0,3480, R² 0,8040), con un
+tiempo de entrenamiento considerablemente menor al de TabNet.
+
+El modelo consiste en una capa inicial de 8 neuronas, una por input,
+una capa final de una neurona para efectuar la regresión y tres capas
+ocultas densamente conectadas de 128, 64 y 32 neuronas, respectivamente.
+Dado que se trata de un modelo de regresión, elegimos como función de
+activación una ReLU. La elección de estos hiperparámetros fue el resultado
+de una optimización mediante GridSearch.
+
+Alrededor del modelo entrenado con el conjunto de datos, implementamos
+[una interfaz](demo/deep_learning_demo.ipynb) que permite a un usuario
+obtener estimaciones de los precios de viviendas proporcionando información
+acerca de la misma.
 
 ## Conclusiones
 
