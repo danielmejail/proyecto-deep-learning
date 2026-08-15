@@ -1,0 +1,1 @@
+hiperparametros = {'hidden_layers': [128, 64, 32], 'learning_rate': 0.001, 'batch_size': 32, 'dropout': 0.1, 'weight_decay': 0.0001}

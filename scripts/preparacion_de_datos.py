@@ -60,11 +60,11 @@ test_target_scaled_name = "test_target_scaled.csv"
 features = X_train.columns
 output = y_train.columns
 
-# X_train.to_csv(datadir + train_data_name)
-# y_train.to_csv(datadir + train_target_name)
+X_train.to_csv(datadir + train_data_name)
+y_train.to_csv(datadir + train_target_name)
 
-# X_test.to_csv(datadir + test_data_name)
-# y_test.to_csv(datadir + test_target_name)
+X_test.to_csv(datadir + test_data_name)
+y_test.to_csv(datadir + test_target_name)
 
 X_train_scaled = pd.DataFrame(X_train_scaled)
 y_train_scaled = pd.DataFrame(y_train_scaled)
